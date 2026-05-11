@@ -94,20 +94,20 @@ public class InstituteService {
         long studentCount = studentRepository.countByInstituteIdAndIsActiveTrue(instituteId);
         long batchCount   = batchRepository.findByInstituteIdAndIsActiveTrue(instituteId).size();
 
-        return Map.of(
-            "id",              inst.getId(),
-            "name",            inst.getName(),
-            "email",           inst.getEmail(),
-            "phone",           inst.getPhone(),
-            "address",         inst.getAddress() != null ? inst.getAddress() : "",
-            "plan",            inst.getPlan(),
-            "studentCount",    studentCount,
-            "batchCount",      batchCount,
-            "maxStudents",     limits.maxStudents() == Integer.MAX_VALUE ? -1 : limits.maxStudents(),
-            "maxBatches",      limits.maxBatches()  == Integer.MAX_VALUE ? -1 : limits.maxBatches(),
-            "whatsapp",        limits.whatsappNotifications(),
-            "reports",         limits.monthlyReports()
-        );
+        return Map.ofEntries(
+        	    Map.entry("id", inst.getId()),
+        	    Map.entry("name", inst.getName()),
+        	    Map.entry("email", inst.getEmail()),
+        	    Map.entry("phone", inst.getPhone()),
+        	    Map.entry("address", inst.getAddress() != null ? inst.getAddress() : ""),
+        	    Map.entry("plan", inst.getPlan()),
+        	    Map.entry("studentCount", studentCount),
+        	    Map.entry("batchCount", batchCount),
+        	    Map.entry("maxStudents", limits.maxStudents() == Integer.MAX_VALUE ? -1 : limits.maxStudents()),
+        	    Map.entry("maxBatches", limits.maxBatches() == Integer.MAX_VALUE ? -1 : limits.maxBatches()),
+        	    Map.entry("whatsapp", limits.whatsappNotifications()),
+        	    Map.entry("reports", limits.monthlyReports())
+        	);
     }
 
     // ── PLAN UPGRADE ──────────────────────────────────────────

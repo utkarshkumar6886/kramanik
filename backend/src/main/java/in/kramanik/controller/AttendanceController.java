@@ -72,7 +72,7 @@ public class AttendanceController {
             @RequestHeader("Authorization") String auth) {
         return ResponseEntity.ok(attendanceService.monthlySummary(batchId, month));
     }
-}
+
 
     /** GET /api/attendance/enrolled?batchId=1 — students enrolled in a batch */
     @GetMapping("/enrolled")
@@ -81,3 +81,4 @@ public class AttendanceController {
             @RequestHeader("Authorization") String auth) {
         return ResponseEntity.ok(attendanceService.getEnrolledStudents(batchId));
     }
+}
