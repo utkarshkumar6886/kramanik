@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kramanik — Register</title>
+  <link rel="stylesheet" href="css/main.css" />
+  <style>
+    body { min-height:100vh; display:flex; align-items:center; justify-content:center; position:relative; overflow-y:auto; padding:40px 20px; }
+    body::before { content:''; position:absolute; width:700px; height:700px; background:radial-gradient(circle,rgba(245,166,35,0.1) 0%,transparent 70%); top:-200px; right:-200px; pointer-events:none; }
+    body::after  { content:''; position:absolute; width:400px; height:400px; background:radial-gradient(circle,rgba(74,158,255,0.07) 0%,transparent 70%); bottom:-100px; left:-100px; pointer-events:none; }
+    .reg-box { width:520px; max-width:100%; background:var(--card); border:1px solid var(--border); border-radius:20px; padding:48px 40px; position:relative; z-index:1; animation:slideUp 0.5s ease both; }
+    @keyframes slideUp { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
+    .reg-logo { font-family:var(--font-head); font-size:24px; font-weight:800; letter-spacing:-0.5px; margin-bottom:4px; }
+    .reg-logo span { color:var(--accent); }
+    .reg-sub { color:var(--muted); font-size:13px; margin-bottom:32px; }
+    .section-label { font-size:11px; font-weight:600; color:var(--muted); text-transform:uppercase; letter-spacing:0.8px; margin:20px 0 12px; padding-bottom:8px; border-bottom:1px solid var(--border); }
+    .success-msg { background:rgba(62,207,142,0.1); border:1px solid rgba(62,207,142,0.3); color:var(--green); padding:10px 14px; border-radius:var(--radius-sm); font-size:13px; margin-bottom:16px; display:none; }
+    .login-link { text-align:center; margin-top:20px; font-size:13px; color:var(--muted); }
+    .login-link a { color:var(--accent); }
+  </style>
+</head>
+<body>
+  <div class="reg-box">
+    <div class="reg-logo">Krama<span>nik</span></div>
+    <div class="reg-sub">Create your coaching institute account — free forever</div>
+
+    <div class="error-msg"   id="reg-error"></div>
+    <div class="success-msg" id="reg-success"></div>
+
+    <div class="section-label">Institute Details</div>
+    <div class="grid-2">
+      <div class="form-group col-span-2"><label>Institute Name *</label><input id="r-institute" placeholder="e.g. Sharma Classes" /></div>
+      <div class="form-group"><label>Email *</label><input id="r-email" type="email" placeholder="institute@email.com" /></div>
+      <div class="form-group"><label>Phone *</label><input id="r-phone" placeholder="9876543210" /></div>
+      <div class="form-group col-span-2"><label>Address</label><input id="r-address" placeholder="City, State" /></div>
+    </div>
+
+    <div class="section-label">Admin Account</div>
+    <div class="grid-2">
+      <div class="form-group col-span-2"><label>Your Name *</label><input id="r-admin" placeholder="Your full name" /></div>
+      <div class="form-group"><label>Password *</label><input id="r-password" type="password" placeholder="Min 6 characters" /></div>
+      <div class="form-group"><label>Confirm Password *</label><input id="r-confirm" type="password" placeholder="Repeat password" onkeydown="if(event.key==='Enter') doRegister()" /></div>
+    </div>
+
+    <button class="btn btn-primary btn-block" id="reg-btn" onclick="doRegister()" style="margin-top:8px;">
+      Create Account →
+    </button>
+    <div class="login-link">Already have an account? <a href="index.html">Sign in</a></div>
+  </div>
+
+  <script src="js/config.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/pages/register.js"></script>
+</body>
+</html>

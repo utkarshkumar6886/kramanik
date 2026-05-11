@@ -1,0 +1,11 @@
+# ============================================================
+# KRAMANIK — .gitattributes
+# Ensures mvnw runs correctly on Linux (Railway deploy)
+# ============================================================
+
+* text=auto
+
+backend/mvnw text eol=lf
+*.sh        text eol=lf
+*.bat       text eol=crlf
+*.cmd       text eol=crlf

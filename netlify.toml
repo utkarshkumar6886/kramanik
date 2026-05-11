@@ -1,0 +1,58 @@
+# ============================================================
+# KRAMANIK — Netlify Config
+# Frontend is static HTML/CSS/JS — no build step needed
+# ============================================================
+
+[build]
+  publish = "frontend"
+  # No build command needed — pure static files
+
+# Redirect all routes to their .html files
+[[redirects]]
+  from = "/dashboard"
+  to   = "/dashboard.html"
+  status = 200
+
+[[redirects]]
+  from = "/students"
+  to   = "/students.html"
+  status = 200
+
+[[redirects]]
+  from = "/batches"
+  to   = "/batches.html"
+  status = 200
+
+[[redirects]]
+  from = "/fees"
+  to   = "/fees.html"
+  status = 200
+
+[[redirects]]
+  from = "/attendance"
+  to   = "/attendance.html"
+  status = 200
+
+[[redirects]]
+  from = "/notifications"
+  to   = "/notifications.html"
+  status = 200
+
+[[redirects]]
+  from = "/settings"
+  to   = "/settings.html"
+  status = 200
+
+[[redirects]]
+  from = "/register"
+  to   = "/register.html"
+  status = 200
+
+# Security headers
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options        = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy        = "strict-origin-when-cross-origin"
+    Permissions-Policy     = "camera=(), microphone=(), geolocation=()"

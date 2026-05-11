@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kramanik — Settings</title>
+  <link rel="stylesheet" href="css/main.css" />
+  <style>
+    .settings-section { margin-bottom:32px; }
+    .settings-title { font-family:var(--font-head); font-size:16px; font-weight:600; margin-bottom:14px; }
+    .settings-card { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:24px; }
+    .plan-badge { display:inline-flex;align-items:center;padding:3px 10px;border-radius:20px;font-size:12px;font-weight:600; }
+    .plan-badge-free  { background:rgba(107,114,128,0.15);color:var(--muted); }
+    .plan-badge-basic { background:rgba(74,158,255,0.15); color:var(--blue); }
+    .plan-badge-pro   { background:rgba(245,166,35,0.15); color:var(--accent); }
+    .features-list { display:flex;flex-direction:column;gap:8px; }
+    .feature-row { display:flex;align-items:center;gap:8px;font-size:13px;padding:6px 0; }
+    .feature-row.feature-locked { color:var(--muted); }
+    .upgrade-hint { font-size:11px;color:var(--accent);margin-left:4px; }
+    .plan-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:24px; }
+    .plan-card { background:var(--card);border:2px solid var(--border);border-radius:var(--radius);padding:24px;position:relative;transition:border-color var(--transition); }
+    .plan-card:hover { border-color:rgba(245,166,35,0.4); }
+    .plan-card.plan-current  { border-color:var(--blue);  background:rgba(74,158,255,0.04); }
+    .plan-card.plan-featured { border-color:var(--accent); background:rgba(245,166,35,0.04); }
+    .plan-popular { position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--accent);color:#0d0f14;font-size:11px;font-weight:700;padding:3px 12px;border-radius:20px;white-space:nowrap; }
+    .plan-name  { font-family:var(--font-head);font-size:18px;font-weight:700;margin-bottom:4px; }
+    .plan-price { font-family:var(--font-head);font-size:32px;font-weight:800;letter-spacing:-1px;margin-bottom:4px; }
+    .plan-period { font-size:14px;font-weight:400;color:var(--muted); }
+    .plan-desc  { font-size:12px;color:var(--muted);margin-bottom:16px; }
+    .plan-features { list-style:none;display:flex;flex-direction:column;gap:8px;font-size:13px;margin-bottom:20px;padding:0; }
+    .plan-features li { display:flex;align-items:center;gap:8px; }
+  </style>
+</head>
+<body>
+  <div class="layout" id="layout"></div>
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- Razorpay Checkout SDK -->
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+  <script src="js/config.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/pages/settings.js"></script>
+  <script>initSettings();</script>
+</body>
+</html>

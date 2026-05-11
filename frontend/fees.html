@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kramanik — Fees</title>
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
+  <div class="layout" id="layout"></div>
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- Create Fee Modal -->
+  <div class="modal-overlay" id="fee-modal">
+    <div class="modal">
+      <div class="modal-title">Create Fee Record</div>
+      <div class="form-group"><label>Student *</label><select id="f-student"><option value="">Select student...</option></select></div>
+      <div class="form-group"><label>Batch *</label><select id="f-batch"><option value="">Select batch...</option></select></div>
+      <div class="grid-2">
+        <div class="form-group"><label>Month (YYYY-MM) *</label><input id="f-month" placeholder="2024-04" /></div>
+        <div class="form-group"><label>Amount Due (₹) *</label><input id="f-amount" type="number" placeholder="1500" /></div>
+        <div class="form-group col-span-2"><label>Due Date *</label><input id="f-due" type="date" /></div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-ghost" onclick="closeModal('fee-modal')">Cancel</button>
+        <button class="btn btn-primary" onclick="saveFee()">Create Record</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Payment Modal -->
+  <div class="modal-overlay" id="pay-modal">
+    <div class="modal">
+      <div class="modal-title">Record Payment</div>
+      <input type="hidden" id="pay-fee-id" />
+      <div id="pay-info" style="margin-bottom:20px;"></div>
+      <div class="grid-2">
+        <div class="form-group"><label>Amount (₹) *</label><input id="pay-amount" type="number" placeholder="0" /></div>
+        <div class="form-group"><label>Payment Mode</label>
+          <select id="pay-mode">
+            <option value="CASH">Cash</option>
+            <option value="UPI">UPI</option>
+            <option value="BANK_TRANSFER">Bank Transfer</option>
+            <option value="OTHER">Other</option>
+          </select>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-ghost" onclick="closeModal('pay-modal')">Cancel</button>
+        <button class="btn btn-success" onclick="submitPayment()">✓ Confirm Payment</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/config.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/pages/fees.js"></script>
+  <script>initFees();</script>
+</body>
+</html>
