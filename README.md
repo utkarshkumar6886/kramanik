@@ -180,5 +180,4 @@ See [DEPLOY.md](DEPLOY.md) for full Railway + Netlify deployment instructions.
 ## Author
 
 **Utkarsh Kumar**
-MCA — KIIT University, Bhubaneswar
 [LinkedIn](https://linkedin.com/in/YOUR_PROFILE) · [GitHub](https://github.com/YOUR_USERNAME)
